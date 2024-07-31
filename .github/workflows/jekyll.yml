@@ -21,6 +21,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Download argodocs
+        run: wget -O argodocs https://github.com/hoyazzang91/argodocs/releases/download/latest/argodocs-linux-amd64
+      - name: Make Exec
+        run: chmod +x argodocs && mv argodocs /usr/local/bin/argodocs
+      - name: Build mkdoc
+        run: argodocs generate ./_workflows
       - name: Setup Ruby
         uses: ruby/setup-ruby@8575951200e472d5f2d95c625da0c7bec8217c42 # v1.161.0
         with:
@@ -29,17 +35,11 @@ jobs:
           cache-version: 0
       - name: Install jekyll
         run: gem install jekyll bundler
-      - name: Download argodocs
-        run: wget -O argodocs https://github.com/hoyazzang91/argodocs/releases/download/latest/argodocs-linux-amd64
-      - name: Make Exec
-        run: chmod +x argodocs && mv argodocs /usr/local/bin/argodocs
-      - name: Build mkdoc
-        run: argodocs generate ./_workflows
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
-        run: jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: jekyll build --future"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
