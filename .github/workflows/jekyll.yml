@@ -28,13 +28,9 @@ jobs:
           bundler-cache: true
           cache-version: 0
       - name: Download argodocs
-        uses: actions/download-artifact@v4
-        with:
-          github-token: ${{ secrets.API_TOKEN }}
-          repository: github.com/hoyazzang91/argodocs
-          pattern: argodocs*
+        run: wget -O argodocs https://github.com/hoyazzang91/argodocs/releases/download/latest/argodocs-linux-amd64
       - name: Make Exec
-        run: chmod +x argodocs-linux-amd64 && mv argodocs-linux-amd64 /usr/local/bin/argodocs
+        run: chmod +x argodocs && mv argodocs /usr/local/bin/argodocs
       - name: Build mkdoc
         run: argodocs generate ./_workflows
       - name: Setup Pages
