@@ -27,13 +27,15 @@ jobs:
           ruby-version: '3.1'
           bundler-cache: true
           cache-version: 0
-      - name: Setup Golang
-        uses: actions/setup-go@v5
+      - name: Download argodocs
+        uses: actions/download-artifact@v4
         with:
-          go-version: '>=1.21'
-      - name: install argodocs
-        run: go install github.com/hoyazzang91/argodocs@latest
-      - name: build mkdoc
+          github-token: ${{ secrets.API_TOKEN }}
+          repository: github.com/hoyazzang91/argodocs
+          pattern: argodocs-linux-amd64
+      - name: Make Exec
+        run: chmod +x argodocs-linux-amd64 && mv argodocs-linux-amd64 /usr/local/bin/argodocs
+      - name: Build mkdoc
         run: argodocs generate ./_workflows
       - name: Setup Pages
         id: pages
