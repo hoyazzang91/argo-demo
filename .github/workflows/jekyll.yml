@@ -28,7 +28,7 @@ jobs:
           bundler-cache: true
           cache-version: 0
       - name: Install jekyll
-        run: gem install jekyll
+        run: gem install jekyll bundler
       - name: Download argodocs
         run: wget -O argodocs https://github.com/hoyazzang91/argodocs/releases/download/latest/argodocs-linux-amd64
       - name: Make Exec
