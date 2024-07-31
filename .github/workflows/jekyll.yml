@@ -43,7 +43,7 @@ jobs:
           mkdir ${{ github.workspace }}/.jekyll-cache && mkdir ${{ github.workspace }}/_site
           docker run \
           -v ${{ github.workspace }}:/srv/jekyll \
-          jekyll/builder:latest /bin/bash -c "jekyll build --baseurl ${{ steps.pages.outputs.base_path }}"
+          jekyll/builder:latest /bin/bash -c "jekyll build --future"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
