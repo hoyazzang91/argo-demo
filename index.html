@@ -1,0 +1,33 @@
+---
+layout: default
+title: Home
+---
+
+<h1 class="my-4">
+  devos argo-hub
+</h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <h3 class="my-3">argo-hub</h3>
+    <p>
+      devos argo-hub
+    </p>
+  </div>
+  <div class="row">
+    {% assign sorted_array = site.workflows | sort: "title" %}
+    {% for workflow in sorted_array %}
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card" style="width: 18rem;">
+        {% if workflow.icon %}
+        <img src="..." class="card-img-top" alt="...">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ workflow.title }}</h5>
+          <p class="card-text">{{ workflow.brief }}</p>
+          <a href="{{ workflow.url }}" class="btn btn-primary">Get More</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>

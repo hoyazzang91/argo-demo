@@ -1,0 +1,12 @@
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+title: Workflow Bootstrap
+
+sass:
+  sass_dir: css
+  style: compressed
+
+collections:
+  workflows:
+    output: true
+    relative_directory: true
