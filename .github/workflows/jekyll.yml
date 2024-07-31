@@ -39,7 +39,10 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
-        run: jekyll build --future"
+        run: |
+          docker run \
+          -v ${{ github.workspace }}:/srv/jekyll \
+          jekyll/builder:latest /bin/bash -c "jekyll build --future"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
