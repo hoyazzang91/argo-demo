@@ -32,7 +32,7 @@ jobs:
         with:
           github-token: ${{ secrets.API_TOKEN }}
           repository: github.com/hoyazzang91/argodocs
-          pattern: argodocs-linux-amd64
+          pattern: argodocs*
       - name: Make Exec
         run: chmod +x argodocs-linux-amd64 && mv argodocs-linux-amd64 /usr/local/bin/argodocs
       - name: Build mkdoc
