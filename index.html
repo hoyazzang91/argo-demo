@@ -9,7 +9,7 @@ layout: default
       <a href="{{ workflow.url | prepend: site.baseurl }}" class="link-underline-light">
         <div class="card" style="width: 18rem;border: 0;">
           {% if workflow.icon %}
-          <img class="card-img-top" style="height: 8rem; object-fit: cover" src="{{ workflow.icon }}" alt="{{workflow.title}}">
+          <img class="card-img-top" style="height: 8rem; object-fit: cover" src="{{ workflow.icon | relative_url }}" alt="{{workflow.title}}">
           {% endif %}
           <div class="card-body">
             <h2 class="panel-title">{{ workflow.title | truncate: 25 }}</h2>
