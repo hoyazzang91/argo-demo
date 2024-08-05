@@ -37,6 +37,6 @@
     resultsContainer: document.getElementById('results-container'),
     searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
     noResultsText: '<p>No results found!</p>',
-    json: '/search.json'
+    json: '{{"/search.json" | relative_url}}'
   })
 </script>
