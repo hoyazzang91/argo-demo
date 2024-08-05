@@ -9,7 +9,7 @@ layout: compress
     {% include navbar.html %}
     <div class="container">{{ content }}</div>
     {% include footer.html %}
-    <script src="/js/jquery-3.7.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src={{"/js/jquery-3.7.1.min.js" | relative_url}}></script>
+    <script src={{"/js/bootstrap.min.js" | relative_url}}></script>
   </body>
 </html>
